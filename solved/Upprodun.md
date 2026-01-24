@@ -2,7 +2,7 @@
 
 Länk till problemet på Kattis: <https://open.kattis.com/problems/upprodun>
 
-## Förstå problemet
+## Problemet
 
 Det finns `N` klassrum och `M` tävlande.
 
@@ -17,7 +17,7 @@ Ny korrekt tolkning: Till varje klassrum ska de tävlande fördelas så att anta
 
 Problemet handlar om tävlande i "team" och därför bör det inte kunna finnas ett klassrum med 1 tävlande, men detta framgår dock inte i uppgiften. Om det är 5 tävlande och 3 klassrum bör fördelningen vara 3, 2, 0 eftersom det handlar om "team". Men om man ser till de constraints som anges i uppgiften och uppgiftens beskrivning så ska det vara 2, 2, 1.
 
-**Constraints:**
+**Begränsningar/överväganden:**
 
 * Antalet tävlande `M` kan vara färre än antal klassrum `N`
 * Det kan vara exakt ett klassrum `N`
@@ -36,7 +36,9 @@ Problemet handlar om tävlande i "team" och därför bör det inte kunna finnas 
 * `i` = a classroom (a line)
 * `k` = contestants in a classroom (represented as `*`'s)
 
-## Resonemang fram till lösning
+## Resonemang kring lösning
+
+### Lösningsidé
 
 Om antal klassrum är 0 eller mindre, i så fall innebär det **inga** lines att skriva ut, hoppa alltså över, ingen beräkning behövs
 
@@ -52,27 +54,18 @@ Vid detta laget är det säkert att `rest` är mindre än `N`, de *kan* inte var
 
 Fyller nu på ett klassrum i taget med 1 tills att `rest` är 0
 
-**Min lösning i kod:**
+## Lösning
 
 ```java
 import java.util.Scanner;
 
-class upprodun {
+class Upprodun {
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
-        
-        // Not among the test cases //
-        if (N <= 0) {
-            }
-        if (M <= 0) {
-            while (N > 0) {
-                System.out.println("");
-                N--;
-            }
-        } // Not among the test cases //
+        sc.close();
         
         int rest = M % N;
         if (rest == 0) {
